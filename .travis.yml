@@ -5,7 +5,7 @@ env:
   global:
     - TEST_DIR="$PWD"
     - TEST_SCRIPT="test.sh"
-    - BUILD_DIR="$PWD/"
+    - BUILD_DIR="$PWD/WildFly/"
     - REPO="quay.io/ibmz/wildfly"
     - TAG="$REPO:21.0.0"
 before_script: 
