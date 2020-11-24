@@ -7,7 +7,7 @@ env:
     - TEST_SCRIPT="test.sh"
     - BUILD_DIR="$PWD/WildFly/"
     - REPO="quay.io/ibmz/wildfly"
-    - TAG="$REPO:21.0.0"
+    - TAG="$REPO:20.0.1"
 before_script: 
   - cd $TEST_DIR && chmod +x $TEST_SCRIPT
   - docker login quay.io -u $ROBOT_USER -p $ROBOT_TOKEN
