@@ -15,11 +15,11 @@ To boot in standalone mode
     
 To boot in standalone mode with admin console available remotely
 
-    docker run -p 8080:8080 -p 9990:9990 -it wildfly:20.0.1 /opt/jboss/wildfly/bin/standalone.sh -b 0.0.0.0 -bmanagement 0.0.0.0
+    docker run -p 8080:8080 -p 9990:9990 -it quay.io/ibmz/wildfly:20.0.1 /opt/jboss/wildfly/bin/standalone.sh -b 0.0.0.0 -bmanagement 0.0.0.0
 
 To boot in domain mode
 
-    docker run -it wildfly:20.0.1 /opt/jboss/wildfly/bin/domain.sh -b 0.0.0.0 -bmanagement 0.0.0.0
+    docker run -it quay.io/ibmz/wildfly:20.0.1 /opt/jboss/wildfly/bin/domain.sh -b 0.0.0.0 -bmanagement 0.0.0.0
 
 ## Application deployment
 
@@ -40,7 +40,7 @@ To do this you just need to extend the `jboss/wildfly` image by creating a new o
 
 1. Create `Dockerfile` with following content:
 
-        FROM jboss/wildfly
+        FROM quay.io/ibmz/wildfly:20.0.1
         ADD your-awesome-app.war /opt/jboss/wildfly/standalone/deployments/
 2. Place your `your-awesome-app.war` file in the same directory as your `Dockerfile`.
 3. Run the build with `docker build --tag=wildfly-app .`
@@ -64,17 +64,17 @@ Sometimes you need to customize the application server configuration. There are 
 
 To be able to create a management user to access the administration console create a Dockerfile with the following content
 
-    FROM jboss/wildfly
+    FROM quay.io/ibmz/wildfly:20.0.1
     RUN /opt/jboss/wildfly/bin/add-user.sh admin Admin#70365 --silent
     CMD ["/opt/jboss/wildfly/bin/standalone.sh", "-b", "0.0.0.0", "-bmanagement", "0.0.0.0"]
 
 Then you can build the image:
 
-    docker build --tag=jboss/wildfly-admin .
+    docker build --tag=wildfly-admin .
 
 Run it:
 
-    docker run -it jboss/wildfly-admin
+    docker run -it wildfly-admin
 
 Administration console will be available on the port `9990` of the container.
 
@@ -82,6 +82,6 @@ Administration console will be available on the port `9990` of the container.
 
 You don't need to do this on your own, because we prepared a trusted build for this repository, but if you really want:
 
-    docker build --rm=true --tag=jboss/wildfly .
+    docker build --rm=true --tag=wildfly .
 
 
