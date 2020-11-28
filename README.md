@@ -1,20 +1,25 @@
+# Wildfly
+
+# Tags
+-	[`20.0.1`](https://github.com/YBA-IBM/wildflyZ/blob/master/WildFly/Dockerfile)
+
 # WildFly Docker image
 
-This is an example Dockerfile with [WildFly application server](http://wildfly.org/).
+This is a Docker image with the [WildFly application server](http://wildfly.org/).
 
 ## Usage
 
 To boot in standalone mode
 
-    docker run -it jboss/wildfly
+    docker run -it quay.io/ibmz/wildfly:20.0.1
     
 To boot in standalone mode with admin console available remotely
 
-    docker run -p 8080:8080 -p 9990:9990 -it jboss/wildfly /opt/jboss/wildfly/bin/standalone.sh -b 0.0.0.0 -bmanagement 0.0.0.0
+    docker run -p 8080:8080 -p 9990:9990 -it wildfly:20.0.1 /opt/jboss/wildfly/bin/standalone.sh -b 0.0.0.0 -bmanagement 0.0.0.0
 
 To boot in domain mode
 
-    docker run -it jboss/wildfly /opt/jboss/wildfly/bin/domain.sh -b 0.0.0.0 -bmanagement 0.0.0.0
+    docker run -it wildfly:20.0.1 /opt/jboss/wildfly/bin/domain.sh -b 0.0.0.0 -bmanagement 0.0.0.0
 
 ## Application deployment
 
@@ -79,11 +84,4 @@ You don't need to do this on your own, because we prepared a trusted build for t
 
     docker build --rm=true --tag=jboss/wildfly .
 
-## Image internals [updated Dec 13, 2018]
-
-This image extends the [`jboss/base-jdk:11`](https://github.com/jboss-dockerfiles/base-jdk/tree/jdk11) image which adds the OpenJDK distribution on top of the [`jboss/base`](https://github.com/jboss-dockerfiles/base) image. Please refer to the README.md for selected images for more info.
-
-The server is run as the `jboss` user which has the uid/gid set to `1000`.
-
-WildFly is installed in the `/opt/jboss/wildfly` directory.
 
