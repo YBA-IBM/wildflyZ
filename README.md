@@ -1,9 +1,11 @@
-# Wildfly
+### This image is built to run on s390x architecture.
+-    [build source](https://github.com/YBA-IBM/wildflyZ) 
+-    [original source code](https://github.com/linux-on-ibm-z/dockerfile-examples/tree/master/WildFly)
 
 # Tags
--	[`20.0.1`](https://github.com/YBA-IBM/wildflyZ/blob/master/WildFly/Dockerfile)
+-	[`20.0.1`]
 
-# WildFly Docker image
+# WildFly
 
 This is a Docker image with the [WildFly application server](http://wildfly.org/).
 
@@ -84,4 +86,12 @@ You don't need to do this on your own, because we prepared a trusted build for t
 
     docker build --rm=true --tag=wildfly .
 
+# License
 
+View [MIT license information](https://github.com/jboss-dockerfiles/wildfly/blob/master/LICENSE) for the software contained in this image.
+
+As with all Docker images, these likely also contain other software which may be under other licenses (such as Bash, etc from the base distribution, along with any direct or indirect dependencies of the primary software being contained).
+
+Some additional license information which was able to be auto-detected might be found in [the repository's directory](https://github.com/jboss-dockerfiles/wildfly/).
+
+As for any pre-built image usage, it is the image user's responsibility to ensure that any use of this image complies with any relevant licenses for all software contained within.
